@@ -33,11 +33,25 @@ JQuery
     Exercise: Try Ajax using JQuery: 20
     
 AngularJS
+ Basics
  - Two Way Binding
  - Create Modules
  - Create MVC within modules
  - ng-app, ng-controller
  - Difference b/w $rootScope vs $scope
+ - $scope will have functions
+ Exericse: Calculator using MVC and modules in AngularJS
+ Expressions and Filter 
+    - Use existing ones
+    - Custom Filter
+    - Usage (Searchable grid)
+    - Exercise : Sortable (Table headers -- on click sort the column)
+ Directives  <userInfo id="23">
+    - Custom directives
+    
+    
+    
+ 
 
 
 

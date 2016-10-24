@@ -1,0 +1,39 @@
+<html>
+<head>
+    <title>Usage</title>
+    <link rel=stylesheet href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.2.4/foundation.css"/>
+</head>    
+<body>
+   
+   <div ng-app="gridApp" ng-controller="AppCtrl">
+      
+      <input type="search" ng-model="searchObj.name" placeholder="Search by name"/>
+      <input type="search" ng-model="searchObj.role" placeholder="Search by role"/>
+      <input type="search" ng-model="searchObj.$" placeholder="Search All"/>
+       <table>
+           <tr ng-repeat="employee in employees | filter:searchObj | orderBy:'id'">
+               <td>{{$index+1}}</td>
+               <td>{{employee.id}}</td>
+               <td>{{employee.name}}</td>
+               <td>{{employee.role}}</td>
+           </tr>
+       </table>
+   </div>
+    
+ <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+<script>
+    var app = angular.module('gridApp',[]);
+    
+    app.controller('AppCtrl', function($scope){
+//        $scope.searchObj = {name: 'Raj'}
+        $scope.employees = [
+            {id: 244, name: 'Ravi', role: 'Analyst'},
+            {id: 232, name: 'Priya', role: 'HR Manager'},
+            {id: 44, name: 'Raj', role: 'Developer'},
+            {id: 123, name: 'Sonia', role: 'Manager'}
+        ]
+    })
+</script>  
+</body>    
+    
+</html>

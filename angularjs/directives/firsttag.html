@@ -1,0 +1,32 @@
+<html>
+<head>
+    <title>Usage</title>
+    <link rel=stylesheet href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.2.4/foundation.css"/>
+</head>    
+<body>
+   
+   <div ng-app="gridApp" ng-controller="AppCtrl">
+      <!--<fp-link></fp-link>
+      <div fp-link></div>-->
+      <div class="fp-link"></div>
+      <p class="fp-link"></p>
+   </div>
+    
+ <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+<script>
+    var app = angular.module('gridApp',[]);
+    
+    app.controller('AppCtrl', function($scope){
+
+    })
+    
+    app.directive('fpLink', function(){
+        return {
+            restrict: 'C',
+            template: '<a href="http://www.flipkart.com">Flipkart link</a>'
+        }
+    })
+</script>  
+</body>    
+    
+</html>
