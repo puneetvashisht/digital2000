@@ -1,0 +1,16 @@
+<html>
+<head>
+    <title>JQuery Demo</title>
+</head>    
+<body>
+    <input type=text id="message" placeholder="Enter some message"/>
+    <div id="welcome"></div>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script>
+        $("#message").keyup(function(){
+            $("#welcome").html($('#message').val())
+        })
+        
+    </script>   
+</body>    
+</html>

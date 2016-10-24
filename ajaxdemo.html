@@ -1,0 +1,26 @@
+<html>
+<head>
+    <title>JQuery Demo</title>
+</head>    
+<body>
+    <button id="load">Load Data</button>
+    <div id="welcome"></div>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script>
+        $('#load').click(function(){
+             $.ajax({
+            url: 'http://127.0.0.1:53126/dummy.json',
+            method: 'GET',
+            success: function(data){
+                console.log(data);
+                console.log(data.name)
+                $('#welcome').html(JSON.stringify(data));
+            }
+        })
+        })
+        
+       
+        
+    </script>   
+</body>    
+</html>

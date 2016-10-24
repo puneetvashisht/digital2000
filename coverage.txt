@@ -1,0 +1,55 @@
+1. JavaScript and HTML
+2. JQuery
+3. AngularJS
+4. NodeJS
+5. MongoDB
+
+MEAN (Mongo Express Angular and Node)
+
+Create an application on these technologies.
+
+DAY 1
+
+JavaScript Basics
+    - Data types
+    - Functions in JS (Passed as parameters, return function)
+    
+HTML 
+    - JS, CSS
+
+IDE
+    Atom
+    Sublime
+    Webstorm
+    Brackets
+    Visual Studio
+
+Exercise: 20 mins
+1. Brackets IDE.. any other IDE
+2. HTML : CSS and JS --> Read value in textbox and print it in a div.
+
+JQuery
+    DOM Manipulation
+    Exercise: Try Ajax using JQuery: 20
+    
+AngularJS
+ - Two Way Binding
+ - Create Modules
+ - Create MVC within modules
+ - ng-app, ng-controller
+ - Difference b/w $rootScope vs $scope
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

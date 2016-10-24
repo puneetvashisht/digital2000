@@ -1,0 +1,43 @@
+<html>
+<head>
+    <title>MVC</title>
+</head>    
+    
+<body>
+   
+   <div ng-app="mvcApp">
+      <input type="text" ng-model="title"/>
+      {{title}}
+      <div ng-controller="firstController">
+          <input type="text" data-ng-model="fName"/>
+          {{title}} {{fName}} {{lName}}<br>
+          <button ng-click="reverse()">Reverse</button>
+          Revsered NAme is: {{reversedName}}
+          
+          <div ng-controller="secondController">
+          {{title}} {{fName}} {{lName}}
+          </div>
+      </div>  
+      
+   </div>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+    
+    <script>
+        var app = angular.module('mvcApp', [])
+        
+        app.controller('firstController', function($scope){
+            console.log($scope)
+            $scope.fName = 'Vinod'
+            $scope.reverse = function(){
+                $scope.reversedName = $scope.fName.split('').reverse().join('');
+            }
+        })
+        app.controller('secondController', function($scope){
+            console.log($scope)
+            $scope.lName = 'Kumar'
+        })
+    </script>
+</body>    
+    
+</html>
