@@ -1,0 +1,38 @@
+<html>
+<head>
+    <title>MVC</title>
+</head>    
+    
+<body>
+   
+   <div ng-app="mvcApp" ng-controller="calcController">
+     <input type="text" ng-model="op1"/>
+     <input type="text" ng-model="op2"/>
+     <button ng-click="add()"> + </button>
+     <button ng-click="sub()"> - </button>
+     
+     <hr>
+     Result: {{result}}
+      
+   </div>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+    
+    <script>
+        var app = angular.module('mvcApp', [])
+        
+        
+        app.controller('calcController', function($scope){
+            
+            $scope.add = function(){
+                $scope.result = parseInt($scope.op1) + parseInt($scope.op2);
+            }
+            
+            $scope.sub = function(){
+                $scope.result = parseInt($scope.op1) - parseInt($scope.op2);
+            }
+        })
+    </script>
+</body>    
+    
+</html>

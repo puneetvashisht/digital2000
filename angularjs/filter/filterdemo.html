@@ -1,0 +1,40 @@
+<html>
+<head>
+    <title>Filters</title>
+</head>    
+    
+<body>
+   
+   <div ng-app="filterApp" ng-controller="AppCtrl">
+     {{'Good afternoon' | uppercase}} <br>
+     {{4 * 4}} <br>
+     {{(3>2)?'Success':'Failure'}} <br>
+     {{today | date: 'y/M/dd - h:m:s - a'}} <br>
+     {{['a','b','c'] | limitTo: -1}} <br>
+     
+     
+     Custom Filter ---
+     {{'Arun' | reverse}}<br>
+     {{'Vinod' | reverse}}<br>
+      
+   </div>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+    
+    <script>
+        var app = angular.module('filterApp', [])
+        app.controller('AppCtrl', function($scope){
+            $scope.today = new Date();
+        })
+        
+        app.filter('reverse', function(){
+            return function(str){
+                console.log('Reverse the ' + str)
+                return str.split('').reverse().join('')
+            }
+        })
+        
+    </script>
+</body>    
+    
+</html>
