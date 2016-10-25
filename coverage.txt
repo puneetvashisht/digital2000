@@ -58,7 +58,10 @@ AngularJS
     - Usage of directives -- third praty directives
  
  HTTP
+  - $http service to do a Http Get to fetch data from the server
  SPA
+  - basic single page application
+  - single html page which loads completely on the first hit and then its hiding and showing different divs
  DI
  Angular-Bootstrap
  

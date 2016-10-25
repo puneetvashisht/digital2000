@@ -9,23 +9,54 @@
     
     <body ng-app="myApp" ng-controller="AppCtrl">
      
+        <button ng-click="loadData()">Load Data</button>
+       
         <input type="search" placeholder="Search All" ng-model="searchObj.$"/>
+        
+         <span uib-rating ng-model="rate" max="max" read-only="isReadonly" on-hover="hoveringOver(value)" on-leave="overStar = null" titles="['one','two','three']" aria-labelledby="default-rating"></span>
+         
+         {{rate}}
       
         <tk-thumbnail ng-repeat="thumbnail in thumbnailData | filter:searchObj" title="{{thumbnail.title}}" caption={{thumbnail.caption}} count="{{thumbnail.count}}">{{thumbnail.summary}}</tk-thumbnail>
         
-       
+      
+    
         
         
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-animate.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-sanitize.min.js"></script>
+    <script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-2.2.0.js"></script>
+ 
         <script>
-            var app = angular.module('myApp',[])
+            var app = angular.module('myApp',['ngAnimate', 'ngSanitize', 'ui.bootstrap'])
             
-            app.controller('AppCtrl', function($scope){
-                $scope.thumbnailData = [
-                    {title:'AngularJS', summary: 'AngularJS is a opinionated framework that gives a bundle of features', caption:"Popularity",count:7},
-                    {title:'ReactJS', summary: 'React JS is a library smaller compared to AngularJS but Virtual DOM is an amazing feature',caption:"Popularity",count:8},
-                    {title:'Ember', summary: 'Ember JS is another framework smaller compared to AngularJS but Virtual DOM is an amazing feature',caption:"Popularity",count:7}
-                ]
+            app.controller('AppCtrl', function($scope, $http){
+                
+                $scope.rate = 7;
+                  $scope.max = 10;
+                  $scope.isReadonly = false;
+
+                  $scope.hoveringOver = function(value) {
+                    $scope.overStar = value;
+                    $scope.percent = 100 * (value / $scope.max);
+                  };
+                
+            
+                
+                
+                $scope.loadData = function(){
+                    //AJAX call
+                    $http({
+                        url: 'dummy.json',
+                        method: 'GET'
+                    }).success(function(data){
+                        console.log(data)
+                        $scope.thumbnailData = data;
+                    })
+                }
+                
+                $scope.thumbnailData = []
             })
             
             app.directive('tkThumbnail', function(){
@@ -36,6 +67,7 @@
                        title: '@title',
                        caption: '@caption',
                        count: '@count'
+                          
                     },
                     transclude: true
                     
@@ -54,7 +86,8 @@
                     templateUrl: 'partial/badge.html',
                     scope: {
                        caption: '@caption', 
-                       count: '@count',
+                       count: '@count'
+                  
                     }
                     
                 }
