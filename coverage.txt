@@ -47,7 +47,24 @@ AngularJS
     - Usage (Searchable grid)
     - Exercise : Sortable (Table headers -- on click sort the column)
  Directives  <userInfo id="23">
-    - Custom directives
+    - Custom directives (link tag)
+    - Exercise: Add some behaviour --> onmouseover.. convert the link into a panel and oinmouseleave make it back to a link
+    - Adding some behaviour to directive
+    - Exercise: Two or more panel instances that display title and body contents from the attributes. Both should be present in a single controller's scope.
+    - Exercise: Nested Directive: Pick thumbnail as a directive from getbootstrap.com and inlcude Badege directive
+ 
+ HTTP
+ SPA
+ DI
+ Angular-Bootstrap
+ 
+ NodeJS BAsic understating
+    
+    
+    
+    
+    
+
     
     
     

@@ -1,0 +1,51 @@
+<html>
+    <head>
+        <title>Panel</title>
+        
+        <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    </head>
+    
+    <body ng-app="myApp" ng-controller="AppCtrl">
+      
+        <panel ng-repeat="panel in panelsData" title={{panel.title}}>{{panel.summary}}</panel>
+       
+        <!--<panel title="Angular JS">AngularJS is a opinionated framework that gives a bundle of features</panel>
+        <panel title="React JS">React JS is a library smaller compared to AngularJS but Virtual DOM is an amazing feature</panel>
+        <panel title="Ember JS">Ember JS is another framework smaller compared to AngularJS but Virtual DOM is an amazing feature</panel>-->
+        
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+        <script>
+            var app = angular.module('myApp',[])
+            
+            app.controller('AppCtrl', function($scope){
+                $scope.panelsData = [
+                    {title:'AngularJS', summary: 'AngularJS is a opinionated framework that gives a bundle of features'},
+                    {title:'ReactJS', summary: 'React JS is a library smaller compared to AngularJS but Virtual DOM is an amazing feature'},
+                    {title:'Ember', summary: 'Ember JS is another framework smaller compared to AngularJS but Virtual DOM is an amazing feature'}
+                ]
+            })
+            
+            app.directive('panel', function(){
+                return {
+//                    template: 'Panel Text'
+                    templateUrl: 'partial/p1.html',
+                    scope: {
+                       title: '@title' 
+                    },
+                    transclude: true
+                    
+                    /*link: function(scope, element, attrs){
+                        
+                        console.log(scope)
+                        scope.title = attrs.title
+
+                    }*/
+                }
+            })
+        
+        </script>
+    </body>
+    
+</html>
