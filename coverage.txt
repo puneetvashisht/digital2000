@@ -52,6 +52,10 @@ AngularJS
     - Adding some behaviour to directive
     - Exercise: Two or more panel instances that display title and body contents from the attributes. Both should be present in a single controller's scope.
     - Exercise: Nested Directive: Pick thumbnail as a directive from getbootstrap.com and inlcude Badege directive
+    - Nested Directives
+    - Isoloated Scopes
+    - link : DOM manipulation 99.9% 
+    - Usage of directives -- third praty directives
  
  HTTP
  SPA

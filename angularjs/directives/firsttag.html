@@ -8,6 +8,7 @@
    <div ng-app="gridApp" ng-controller="AppCtrl">
       <!--<fp-link></fp-link>
       <div fp-link></div>-->
+  <input type="text" datepicker>
       <div class="fp-link"></div>
       <p class="fp-link"></p>
    </div>
@@ -22,7 +23,7 @@
     
     app.directive('fpLink', function(){
         return {
-            restrict: 'C',
+            restrict: 'EAC',
             template: '<a href="http://www.flipkart.com">Flipkart link</a>'
         }
     })

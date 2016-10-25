@@ -1,0 +1,66 @@
+<html>
+    <head>
+        <title>Panel</title>
+        
+        <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    </head>
+    
+    <body ng-app="myApp" ng-controller="AppCtrl">
+     
+        <input type="search" placeholder="Search All" ng-model="searchObj.$"/>
+      
+        <tk-thumbnail ng-repeat="thumbnail in thumbnailData | filter:searchObj" title="{{thumbnail.title}}" caption={{thumbnail.caption}} count="{{thumbnail.count}}">{{thumbnail.summary}}</tk-thumbnail>
+        
+       
+        
+        
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+        <script>
+            var app = angular.module('myApp',[])
+            
+            app.controller('AppCtrl', function($scope){
+                $scope.thumbnailData = [
+                    {title:'AngularJS', summary: 'AngularJS is a opinionated framework that gives a bundle of features', caption:"Popularity",count:7},
+                    {title:'ReactJS', summary: 'React JS is a library smaller compared to AngularJS but Virtual DOM is an amazing feature',caption:"Popularity",count:8},
+                    {title:'Ember', summary: 'Ember JS is another framework smaller compared to AngularJS but Virtual DOM is an amazing feature',caption:"Popularity",count:7}
+                ]
+            })
+            
+            app.directive('tkThumbnail', function(){
+                return {
+//                    template: 'Panel Text'
+                    templateUrl: 'partial/thumb.html',
+                    scope: {
+                       title: '@title',
+                       caption: '@caption',
+                       count: '@count'
+                    },
+                    transclude: true
+                    
+                    /*link: function(scope, element, attrs){
+                        
+                        console.log(scope)
+                        scope.title = attrs.title
+
+                    }*/
+                }
+            })
+            
+            app.directive('tkBadge', function(){
+                return {
+//                    template: 'Panel Text'
+                    templateUrl: 'partial/badge.html',
+                    scope: {
+                       caption: '@caption', 
+                       count: '@count',
+                    }
+                    
+                }
+            })
+        
+        </script>
+    </body>
+    
+</html>
