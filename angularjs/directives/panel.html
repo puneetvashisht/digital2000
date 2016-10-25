@@ -9,7 +9,8 @@
     
     <body ng-app="myApp">
        
-        <panel></panel>
+        <panel title="Angular JS"></panel>
+        <panel title="React JS"></panel>
         
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
         <script>
@@ -18,12 +19,29 @@
                 return {
 //                    template: 'Panel Text'
                     templateUrl: 'partial/p.html',
+                    scope: {
+                        //Isolated Scope
+                    },
                     link: function(scope, element, attrs){
-                        console.log(element)
+                        
+                        console.log(scope)
+                        scope.title = attrs.title
+                        
                         element.bind('mouseenter', function(){
                             console.log('Mouse entered the element')
-                            element.addClass('panel panel-primary')
+                           console.log(element.children())
+                           element.children().removeClass('panel panel-default')
+                           element.children().addClass('panel panel-primary')                          
                         })
+                        
+                        element.bind('mouseleave', function(){
+                            console.log('Mouse leaves the element')
+                             element.children().removeClass('panel panel-primary')       
+                           element.children().addClass('panel panel-default')
+                                             
+                        })
+                        
+                       
                     }
                 }
             })
