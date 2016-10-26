@@ -1,0 +1,75 @@
+<html>
+<head>
+    <title>Login Page</title>
+    <link rel="stylesheet" href="https://getbootstrap.com/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://getbootstrap.com/examples/signin/signin.css"/>
+    <style>
+        .error {
+            color: red;
+        }
+    </style>
+</head>    
+    
+<body>
+   
+   <div ng-app="loginApp">
+      
+     <ng-view></ng-view>
+      
+   </div>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-route.min.js"></script>
+    
+    <script>
+        var app = angular.module('loginApp', ['ngRoute'])
+        
+        //Singleton object
+        app.factory('UserFactory', function(){
+            return {
+                email: 'test@test.com',
+                pwd: ''
+            }
+        })
+        
+         app.controller('LandingCtrl', function($scope, UserFactory){ 
+              $scope.user = UserFactory
+         })
+        
+        app.controller('AppCtrl', function($scope, $http, $location, UserFactory){
+            $scope.user = UserFactory
+            
+            $scope.authenticate = function(){
+                $http({
+                    url: '/authenticate',
+                    method: 'POST',
+                    data: $scope.user
+                }).success(function(data){
+                    console.log(data)
+                    if(data.auth){
+                       $location.path("/landing")
+                    }
+                    else{
+                        //Show an error message to the user
+                        $scope.errorMessage = "Invalid UserName/Password!!"
+                    }
+                })
+            }
+        });
+        
+        app.config(function($routeProvider){
+            $routeProvider.when("/", {
+                templateUrl: 'partial/login.html',
+                controller: 'AppCtrl'
+            }).when("/landing", {
+                templateUrl:'partial/landing.html',
+                controller: 'LandingCtrl'
+            }).otherwise({
+                redirectTo: "/"
+            })
+        })
+       
+    </script>
+</body>    
+    
+</html>

@@ -1,0 +1,33 @@
+<html>
+<head>
+    <title>MVC</title>
+</head>    
+    
+<body>
+   
+   <div ng-app="spaApp">
+      
+     <ng-view></ng-view>
+      
+   </div>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-route.min.js"></script>
+    
+    <script>
+        var app = angular.module('spaApp', ['ngRoute'])
+        
+        app.config(function($routeProvider){
+            $routeProvider.when("/", {
+                templateUrl: 'partial/home.html'
+            }).when("/aboutus", {
+                templateUrl:'partial/aboutus.html'
+            }).otherwise({
+                redirectTo: "/"
+            })
+        })
+       
+    </script>
+</body>    
+    
+</html>
