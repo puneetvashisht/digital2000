@@ -65,7 +65,12 @@ AngularJS
   - Creating a login screen
   
   Usage of third party directive.. module injection
-  
+ 
+ 
+   
+ DI
+ Angular-Bootstrap
+ NodeJS BAsic understating
   
  NodeJS and MongoDB 
  1. Understand NodeJS
@@ -75,14 +80,13 @@ AngularJS
     
  2. Read File I/O
  3. Create a server form NodeJS
+    - npm (node package manager) : express
  4. Integrate NodeJS with Mongo DB
  5. Integrate Angular - NodeJS - MongoDB
  
-  
-  
- DI
- Angular-Bootstrap
- NodeJS BAsic understating
+
+
+
     
     
     
